@@ -22,4 +22,3 @@ export const CONTROL_BUTTONS = [
 ];
 
 export const OPERATIONS = ["+", "-", "*", "/"];
-export const ACTIONS = ["=", "C", "CE"];

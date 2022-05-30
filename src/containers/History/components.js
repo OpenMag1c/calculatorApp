@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const ScrollDiv = styled.div`
-  margin-left: 10px;
-  flex: 1;
+  margin-left: 0.5rem;
+  width: 20%;
+  min-width: 14rem;
   height: 100%;
   align-items: center;
   border-left: 1px solid ${({ theme }) => theme.colors.black};
@@ -19,9 +20,11 @@ export const ScrollDiv = styled.div`
     border-radius: 9em;
   }
 
-  ${({ theme }) => theme.below.xs`
+  ${({ theme }) => theme.below.small`
     margin-left: 0;
+    border: none;
     height: 40%;
+    width: 100%;
   `};
 `;
 

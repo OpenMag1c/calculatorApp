@@ -1,8 +1,9 @@
 import React from "react";
 import StyledButton from "./components";
 
-function ControlButton({ text }) {
-  return <StyledButton>{text}</StyledButton>;
+function ControlButton(props) {
+  const { text } = props;
+  return <StyledButton {...props}>{text}</StyledButton>;
 }
 
 export default ControlButton;

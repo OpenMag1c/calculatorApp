@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledInput = styled.span`
-  min-height: 50px;
+  min-height: 4rem;
   height: 10%;
   width: 100%;
   color: ${({ theme }) => theme.colors.black};
@@ -10,10 +10,6 @@ const StyledInput = styled.span`
   text-align: right;
   outline: none;
   border: none;
-
-  ${({ theme }) => theme.below.xs`
-    font-size: ${theme.fontSizes[6]}px;
-  `};
 `;
 
 export default StyledInput;

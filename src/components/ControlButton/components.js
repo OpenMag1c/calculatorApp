@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   transition: 0.2s all;
   color: ${({ theme }) => theme.colors.black};
 
-  ${({ theme }) => theme.above.xs`
+  ${({ theme }) => theme.below.xs`
     height: 4.5rem;
     width: 4.5rem;
     margin: 0 0.5rem;
@@ -22,10 +22,18 @@ const StyledButton = styled.button`
     font-size: ${theme.fontSizes[4]}px;
   `};
 
+  ${({ theme }) => theme.above.xs`
+    height: 4.5rem;
+    width: 4.5rem;
+    margin: 0 0.8rem;
+    border-radius: 1rem;
+    font-size: ${theme.fontSizes[4]}px;
+  `};
+
   ${({ theme }) => theme.above.small`
     height: 5rem;
     width: 5rem;
-    margin: 0 1rem;
+    margin: 0 0.9rem;
     font-size: ${theme.fontSizes[5]}px;
   `};
 

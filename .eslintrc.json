@@ -23,7 +23,9 @@
             "extensions": [".js", ".jsx"]
         }],
         "react/react-in-jsx-scope": "off",
-        "react/prop-types": 0
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": 0,
+        "no-shadow": "off"
     },
     "settings": {
         "import/resolver": {

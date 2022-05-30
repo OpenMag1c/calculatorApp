@@ -7,21 +7,23 @@ import App from "App";
 import GlobalStyles from "globalStyles";
 import {
   getThemeFromStorage,
-  setThemeToStorage,
+  saveThemeToStorage,
 } from "helpers/localStorage/theme";
-import { getTheme, ThemeContext } from "helpers/themeContext";
+import ThemeContext from "helpers/themeContext";
 import ErrorBoundary from "components/ErrorBoundary";
+import "helpers/i18n/i18n";
 
 function AppContainer() {
-  const [theme, setTheme] = useState(() => getThemeFromStorage());
+  const [theme, setTheme] = useState(() => getThemeFromStorage().theme);
+
   const toggleTheme = useCallback((newTheme) => {
-    setTheme(newTheme);
-    setThemeToStorage(newTheme);
+    setTheme(newTheme.theme);
+    saveThemeToStorage(newTheme);
   }, []);
 
   return (
     <ThemeContext.Provider value={toggleTheme}>
-      <ThemeProvider theme={getTheme(theme)}>
+      <ThemeProvider theme={theme}>
         <ErrorBoundary>
           <BrowserRouter>
             <Layouts>

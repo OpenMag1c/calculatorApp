@@ -1,17 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { APP_NAME } from "constants/names";
-import {
-  HOME_PAGE_NAME,
-  HOME_PAGE_ROUTE,
-  SETTINGS_PAGE_NAME,
-  SETTINGS_PAGE_ROUTE,
-} from "constants/router";
-import { Container, Title, Navbar } from "./components";
+import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from "constants/router";
+import { useTranslation } from "react-i18next";
+import { Container, Title, Navbar, LinkWrapper } from "./components";
 
 export default function Header() {
-  const setActiveLinkStyle = (isActive) => {
-    if (!isActive) {
+  const { t } = useTranslation();
+  const setActiveLinkStyle = ({ isActive }) => {
+    if (isActive) {
       return {
         borderBottom: "2px solid white",
       };
@@ -21,14 +17,22 @@ export default function Header() {
 
   return (
     <Container>
-      <Title>{APP_NAME}</Title>
+      <Title>{t("names.app")}</Title>
       <Navbar>
-        <NavLink to={HOME_PAGE_ROUTE} style={setActiveLinkStyle} id="link">
-          {HOME_PAGE_NAME}
-        </NavLink>
-        <NavLink to={SETTINGS_PAGE_ROUTE} style={setActiveLinkStyle} id="link">
-          {SETTINGS_PAGE_NAME}
-        </NavLink>
+        <LinkWrapper>
+          <NavLink to={HOME_PAGE_ROUTE} style={setActiveLinkStyle} id="link">
+            {t("routes.home")}
+          </NavLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <NavLink
+            to={SETTINGS_PAGE_ROUTE}
+            style={setActiveLinkStyle}
+            id="link"
+          >
+            {t("routes.settings")}
+          </NavLink>
+        </LinkWrapper>
       </Navbar>
     </Container>
   );

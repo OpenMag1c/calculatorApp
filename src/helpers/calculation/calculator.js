@@ -39,7 +39,7 @@ class Calculator {
   }
 
   execute(operation, id) {
-    const command = new Command(operation);
+    const command = Command(operation);
     this.numbers[id] = command.execute(this.numbers[id], this.numbers[id + 1]);
     this.numbers.splice(id + 1, 1);
     this.operations.splice(id, 1);

@@ -1,21 +1,30 @@
 import { OPERATIONS } from "constants/buttons";
 
 const updateLine = (prevState, value) => {
-  if (value === "CE") return "";
-
-  if (value === "C") return prevState.slice(0, -1);
-
-  const lastElement = prevState[prevState.length - 1];
+  let example = prevState;
+  const lastElement = example[example.length - 1];
   if (OPERATIONS.includes(value)) {
-    if (!lastElement && value !== "-" && value !== "+") return prevState;
+    if (!lastElement && value !== "-" && value !== "+") return example;
     if (OPERATIONS.includes(lastElement)) {
-      return prevState.slice(0, -1) + value;
+      return example.slice(0, -1) + value;
+    }
+  } else {
+    if (example === "0") {
+      example = "";
+    }
+    switch (value) {
+      case "CE":
+        return "0";
+      case "C":
+        return example.slice(0, -1);
+      case ".":
+        return lastElement === "." ? example : example + value;
+      default:
+        return example + value;
     }
   }
-  if (lastElement === "." && value === ".") {
-    return prevState;
-  }
-  return prevState + value;
+
+  return example + value;
 };
 
 export default updateLine;

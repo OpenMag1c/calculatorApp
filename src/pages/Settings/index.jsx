@@ -1,26 +1,30 @@
-import React, { useContext, useState } from "react";
-import { SETTINGS } from "constants/names";
-import themes from "constants/themes";
-import { ThemeContext } from "helpers/themeContext";
-import { getThemeFromStorage } from "helpers/localStorage/theme";
-import { SelectTheme, Wrapper, Title } from "./components";
+import React from "react";
+import useThemeSettings from "hooks/useThemeSettings";
+import DropDownMenu from "components/DropDown";
+import useLanguageSettings from "hooks/useLanguageSettings";
+import { themes } from "settings/themes";
+import { languages } from "settings/languages";
+import { Wrapper, Title } from "./components";
 
-export default function Settings() {
-  const [theme, setTheme] = useState(getThemeFromStorage());
-  const toggleTheme = useContext(ThemeContext);
-  const onChangeTheme = (event) => {
-    const updateTheme = event.target.value;
-    toggleTheme(updateTheme);
-    setTheme(updateTheme);
-  };
+function Settings() {
+  const { theme, changeTheme } = useThemeSettings();
+  const { t, changeLanguage, language } = useLanguageSettings();
 
   return (
     <Wrapper>
-      <Title>{SETTINGS}</Title>
-      <SelectTheme onChange={onChangeTheme} value={theme}>
-        <option value={themes.lightTheme}>{themes.lightTheme}</option>
-        <option value={themes.darkTheme}>{themes.darkTheme}</option>
-      </SelectTheme>
+      <Title>{t("routes.settings")}</Title>
+      <DropDownMenu
+        options={themes}
+        selected={theme}
+        setSelected={changeTheme}
+      />
+      <DropDownMenu
+        options={languages}
+        selected={language}
+        setSelected={changeLanguage}
+      />
     </Wrapper>
   );
 }
+
+export default Settings;

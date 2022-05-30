@@ -21,7 +21,11 @@ export const Title = styled.span`
 export const Navbar = styled.div`
   height: 100%;
   display: flex;
-  justify-content: stretch;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 1rem;
+`;
+
+export const LinkWrapper = styled.div`
+  margin: 0 0.3rem;
 `;

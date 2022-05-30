@@ -13,4 +13,5 @@ export const Title = styled.h1`
 export const SelectTheme = styled.select`
   padding: 1rem;
   outline: none;
+  cursor: pointer;
 `;

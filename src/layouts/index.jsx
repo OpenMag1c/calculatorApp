@@ -2,7 +2,7 @@ import React from "react";
 import Header from "components/Header";
 import { PageLayout, MainWindow } from "./components";
 
-export default function Layouts({ children }) {
+function Layouts({ children }) {
   return (
     <PageLayout>
       <Header />
@@ -10,3 +10,5 @@ export default function Layouts({ children }) {
     </PageLayout>
   );
 }
+
+export default Layouts;

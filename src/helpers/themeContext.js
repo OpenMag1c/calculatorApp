@@ -1,17 +1,6 @@
 import React from "react";
-import themes from "constants/themes";
-import lightTheme from "assets/lightTheme";
-import darkTheme from "assets/darkTheme";
+import { themes } from "settings/themes";
 
-export const ThemeContext = React.createContext(themes.lightTheme);
+const ThemeContext = React.createContext(themes[0]);
 
-export const getTheme = (theme) => {
-  switch (theme) {
-    case themes.lightTheme:
-      return lightTheme;
-    case themes.darkTheme:
-      return darkTheme;
-    default:
-      return lightTheme;
-  }
-};
+export default ThemeContext;

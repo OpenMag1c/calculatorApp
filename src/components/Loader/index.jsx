@@ -1,17 +1,20 @@
 import React from "react";
-import styles from "./styles.css";
+import theme from "theme";
+import Spinner, { Wrapper } from "./components";
 
-export default function Loader() {
+const LOADER_SIZE = 100;
+
+function Loader() {
   return (
-    <svg className={styles.spinner} viewBox="0 0 50 50">
-      <circle
-        className={styles.path}
-        cx="25"
-        cy="25"
-        r="20"
-        fill="none"
-        strokeWidth="5"
+    <Wrapper>
+      <Spinner
+        type="Bars"
+        color={theme.colors.secondary}
+        height={LOADER_SIZE}
+        width={LOADER_SIZE}
       />
-    </svg>
+    </Wrapper>
   );
 }
+
+export default Loader;

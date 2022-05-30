@@ -1,9 +1,10 @@
 import React from "react";
-import { CLEAR_ALL, HISTORY } from "constants/names";
+import { useTranslation } from "react-i18next";
 import { HistoryButton, ScrollDiv, Title } from "./components";
 
 export default React.memo(({ history, setExample, updateHistory }) => {
-  const onNoteClick = (note) => {
+  const { t } = useTranslation();
+  const onNoteClick = (note) => () => {
     setExample(note.example);
   };
   const clearHistory = () => {
@@ -12,19 +13,15 @@ export default React.memo(({ history, setExample, updateHistory }) => {
 
   return (
     <ScrollDiv>
-      <Title>{HISTORY}</Title>
+      <Title>{t("names.history")}</Title>
       {history.map((note) => (
-        <HistoryButton
-          type="button"
-          key={note.id}
-          onClick={() => onNoteClick(note)}
-        >
+        <HistoryButton type="button" key={note.id} onClick={onNoteClick(note)}>
           {note.example}
         </HistoryButton>
       ))}
       {history.length > 0 && (
         <HistoryButton type="button" onClick={clearHistory}>
-          {CLEAR_ALL}
+          {t("names.clear")}
         </HistoryButton>
       )}
     </ScrollDiv>
