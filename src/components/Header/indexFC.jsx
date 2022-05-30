@@ -4,16 +4,17 @@ import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from "constants/router";
 import { useTranslation } from "react-i18next";
 import { Container, Title, Navbar, LinkWrapper } from "./components";
 
-export default function Header() {
+const setActiveLinkStyle = ({ isActive }) => {
+  if (isActive) {
+    return {
+      borderBottom: "2px solid white",
+    };
+  }
+  return {};
+};
+
+function Header() {
   const { t } = useTranslation();
-  const setActiveLinkStyle = ({ isActive }) => {
-    if (isActive) {
-      return {
-        borderBottom: "2px solid white",
-      };
-    }
-    return {};
-  };
 
   return (
     <Container>
@@ -37,3 +38,5 @@ export default function Header() {
     </Container>
   );
 }
+
+export default React.memo(Header);
