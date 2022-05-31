@@ -5,7 +5,7 @@ import truncated from "./truncated";
 function fixMultiplication(example) {
   // fix situation like 16(-1) => 16*(-1)
   for (let i = 1; i < example.length; i++) {
-    if (example[i] === "(" && Number.isFinite(example[i - 1])) {
+    if (example[i] === "(" && !Number.isNaN(example[i - 1])) {
       example = `${example.slice(0, i)}*${example.slice(i)}`;
       i++;
     }
@@ -41,8 +41,7 @@ const solvePart = (example) => {
 };
 
 const solveExample = (ex) => {
-  let example = ex;
-  example = fixMultiplication(example);
+  let example = fixMultiplication(ex);
   example = `(${example})`;
   const openBrackets = [];
   while (example[0] === "(" && example[example.length - 1] === ")") {

@@ -12,7 +12,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.dark};
 `;
 
-export const Title = styled.span`
+export const Title = styled.h3`
   font-size: ${({ theme }) => theme.fontSizes[3]}px;
   color: white;
   font-family: ${({ theme }) => theme.font};

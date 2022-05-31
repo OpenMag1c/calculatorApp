@@ -25,12 +25,13 @@ class AppContainer extends React.Component {
   toggleTheme = (theme) => {
     this.setState({ theme: theme.theme });
     saveThemeToStorage(theme);
-  }
+  };
 
   render() {
+    const { theme } = this.state;
     return (
       <ThemeContext.Provider value={this.toggleTheme}>
-        <ThemeProvider theme={this.state.theme}>
+        <ThemeProvider theme={theme}>
           <ErrorBoundary>
             <BrowserRouter>
               <Layouts>
