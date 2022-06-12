@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
   height: 8%;
@@ -28,4 +29,23 @@ export const Navbar = styled.div`
 
 export const LinkWrapper = styled.div`
   margin: 0 0.3rem;
+`;
+
+export const NavLinkStyled = styled(NavLink)`
+  color: white;
+  font-size: ${({ theme }) => theme.fontSizes[3]}px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.5s all;
+  border: 2px solid transparent;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.white};
+  }
+
+  &.active {
+    border-bottom: 2px solid white;
+  }
 `;

@@ -1,7 +1,8 @@
 export default {
   translation: {
     routes: {
-      home: "Home",
+      homeCC: "Home(CC)",
+      homeFC: "Home(FC)",
       settings: "Settings",
     },
     names: {

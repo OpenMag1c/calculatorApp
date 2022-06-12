@@ -1,4 +1,4 @@
-import keys from "constants/localStorageKeys";
+import keys from "../../constants/localStorageKeys";
 
 export const getHistoryFromStorage = () => {
   const historyJSON = window.localStorage.getItem(keys.history);

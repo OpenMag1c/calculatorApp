@@ -1,6 +1,8 @@
 import React from "react";
-import StyledInput from "./components";
+import Container from "./styled";
 
-export default function Display({ text }) {
-  return <StyledInput>{text}</StyledInput>;
-}
+const Display = ({ text }) => {
+  return <Container>{text}</Container>;
+};
+
+export default Display;

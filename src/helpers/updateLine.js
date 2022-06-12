@@ -1,4 +1,5 @@
-import { OPERATIONS } from "constants/buttons";
+import { OPERATIONS } from "../constants/buttons";
+import changeSign from "./calculation/changeSign";
 
 const updateLine = (prevState, value) => {
   let example = prevState;
@@ -13,10 +14,12 @@ const updateLine = (prevState, value) => {
       example = "";
     }
     switch (value) {
+      case "+/-":
+        return changeSign(example);
       case "CE":
         return "0";
       case "C":
-        return example.slice(0, -1);
+        return example.slice(0, -1) || "0";
       case ".":
         return lastElement === "." ? example : example + value;
       default:

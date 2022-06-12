@@ -19,6 +19,8 @@ export const CONTROL_BUTTONS = [
   "0",
   ")",
   "CE",
+  "+/-",
+  "%",
 ];
 
-export const OPERATIONS = ["+", "-", "*", "/"];
+export const OPERATIONS = ["+", "-", "*", "/", "%"];

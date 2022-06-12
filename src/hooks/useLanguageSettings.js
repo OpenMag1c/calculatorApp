@@ -1,9 +1,10 @@
 import { useState } from "react";
+
+import { useTranslation } from "react-i18next";
 import {
   getLanguageFromStorage,
   saveLanguageToStorage,
-} from "helpers/localStorage/language";
-import { useTranslation } from "react-i18next";
+} from "../helpers/localStorage/language";
 
 const useLanguageSettings = () => {
   const { t, i18n } = useTranslation();

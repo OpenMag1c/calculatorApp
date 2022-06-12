@@ -1,17 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from "constants/router";
-import { withTranslation } from "react-i18next";
-import { Container, Title, Navbar, LinkWrapper } from "./components";
 
-const setActiveLinkStyle = ({ isActive }) => {
-  if (isActive) {
-    return {
-      borderBottom: "2px solid white",
-    };
-  }
-  return {};
-};
+import { withTranslation } from "react-i18next";
+import {
+  HOME_PAGE_CC_ROUTE,
+  HOME_PAGE_FC_ROUTE,
+  SETTINGS_PAGE_ROUTE,
+} from "constants/router";
+import { Container, LinkWrapper, Navbar, NavLinkStyled, Title } from "./styled";
 
 class Header extends React.PureComponent {
   render() {
@@ -21,18 +16,19 @@ class Header extends React.PureComponent {
         <Title>{t("names.app")}</Title>
         <Navbar>
           <LinkWrapper>
-            <NavLink to={HOME_PAGE_ROUTE} style={setActiveLinkStyle} id="link">
-              {t("routes.home")}
-            </NavLink>
+            <NavLinkStyled to={HOME_PAGE_CC_ROUTE}>
+              {t("routes.homeCC")}
+            </NavLinkStyled>
           </LinkWrapper>
           <LinkWrapper>
-            <NavLink
-              to={SETTINGS_PAGE_ROUTE}
-              style={setActiveLinkStyle}
-              id="link"
-            >
+            <NavLinkStyled to={HOME_PAGE_FC_ROUTE}>
+              {t("routes.homeFC")}
+            </NavLinkStyled>
+          </LinkWrapper>
+          <LinkWrapper>
+            <NavLinkStyled to={SETTINGS_PAGE_ROUTE}>
               {t("routes.settings")}
-            </NavLink>
+            </NavLinkStyled>
           </LinkWrapper>
         </Navbar>
       </Container>

@@ -1,12 +1,13 @@
 import { useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
+import { useTranslation } from "react-i18next";
 import {
   getHistoryFromStorage,
   saveHistoryToStorage,
-} from "helpers/localStorage/history";
-import updateLine from "helpers/updateLine";
-import solveExample from "helpers/calculation/solveExample";
-import { useTranslation } from "react-i18next";
+} from "../helpers/localStorage/history";
+import solveExample from "../helpers/calculation/solveExample";
+import updateLine from "../helpers/updateLine";
 
 const useCalculation = (setError) => {
   const [example, setExample] = useState("0");

@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "components/Header";
-import { PageLayout, MainWindow } from "./components";
+import { MainWindow, PageLayout } from "./styled";
+import Header from "../components/Header";
 
-function Layouts({ children }) {
+const Layouts = ({ children }) => {
   return (
     <PageLayout>
       <Header />
       <MainWindow>{children}</MainWindow>
     </PageLayout>
   );
-}
+};
 
 export default Layouts;

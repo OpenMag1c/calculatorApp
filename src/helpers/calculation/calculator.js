@@ -10,6 +10,9 @@ function mul(x, y) {
 function div(x, y) {
   return x / y;
 }
+function mod(x, y) {
+  return x % y;
+}
 
 class CommandCreator {
   constructor(execute) {
@@ -23,6 +26,8 @@ const Command = (operation) => {
       return new CommandCreator(mul);
     case "/":
       return new CommandCreator(div);
+    case "%":
+      return new CommandCreator(mod);
     case "+":
       return new CommandCreator(add);
     case "-":

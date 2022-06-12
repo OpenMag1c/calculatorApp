@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -10,5 +10,3 @@ const StyledDiv = styled.div`
   font-size: ${({ theme }) => theme.fontSizes[6]}px;
   color: ${({ theme }) => theme.colors.black};
 `;
-
-export default StyledDiv;

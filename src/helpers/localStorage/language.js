@@ -1,5 +1,5 @@
-import keys from "constants/localStorageKeys";
-import { defaultLanguage, languages } from "settings/languages";
+import keys from "../../constants/localStorageKeys";
+import { defaultLanguage, languages } from "../../settings/languages";
 
 export const getLanguageFromStorage = () => {
   const id = window.localStorage.getItem(keys.language);

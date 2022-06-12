@@ -1,7 +1,8 @@
 export default {
   translation: {
     routes: {
-      home: "Главная",
+      homeCC: "Главная(CC)",
+      homeFC: "Главная(FC)",
       settings: "Настройки",
     },
     names: {

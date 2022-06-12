@@ -5,6 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:import/recommended",
         "airbnb",
         "plugin:prettier/recommended",
         "plugin:cypress/recommended"
@@ -24,12 +25,33 @@
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"]
         }],
+        "import/prefer-default-export": "off",
+        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
         "react/prop-types": 0,
         "no-shadow": "off"
     },
     "settings": {
+        // "import/resolver": {
+        //     "alias": {
+        //         "map": [
+        //             ["@/components", "./components"],
+        //             ["@/constants", "./constants"],
+        //             ["@/containers", "./containers"],
+        //             ["@/helpers", "./helpers"],
+        //             ["@/calculation", "./helpers/calculation"],
+        //             ["@/localStorage", "./helpers/localStorage"],
+        //             ["@/hooks", "./hooks"],
+        //             ["@/layouts", "./layouts"],
+        //             ["@/locals", "./locals"],
+        //             ["@/screens", "./screens"],
+        //             ["@/settings", "./settings"],
+        //             ["@/themes", "./themes"]
+        //         ],
+        //         "extensions": [".js", ".jsx", ".json"]
+        //     }
+        // }
         "import/resolver": {
             "node": {
                 "paths": ["src"]

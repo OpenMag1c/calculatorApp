@@ -1,7 +1,7 @@
 import React from "react";
-import { CONTROL_BUTTONS } from "constants/buttons";
-import ControlButton from "components/ControlButton";
-import Panel from "./components";
+import { CONTROL_BUTTONS } from "../../constants/buttons";
+import ControlButton from "../../components/ControlButton";
+import { Panel } from "./styled";
 
 class KeyPad extends React.PureComponent {
   render() {

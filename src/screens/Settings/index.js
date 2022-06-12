@@ -1,15 +1,16 @@
 import React from "react";
-import DropDownMenu from "components/DropDown";
-import { themes } from "settings/themes";
-import { languages } from "settings/languages";
+
+import { withTranslation } from "react-i18next";
+import { getThemeFromStorage } from "helpers/localStorage/theme";
 import {
   getLanguageFromStorage,
   saveLanguageToStorage,
 } from "helpers/localStorage/language";
-import { getThemeFromStorage } from "helpers/localStorage/theme";
+import DropDownMenu from "components/DropDown";
+import { themes } from "settings/themes";
+import { languages } from "settings/languages";
 import ThemeContext from "helpers/themeContext";
-import { withTranslation } from "react-i18next";
-import { Wrapper, Title } from "./components";
+import { Title, Wrapper } from "./styled";
 
 class Settings extends React.Component {
   constructor(props) {
@@ -18,21 +19,19 @@ class Settings extends React.Component {
       theme: getThemeFromStorage(),
       language: getLanguageFromStorage(),
     };
-    this.changeLanguage = this.changeLanguage.bind(this);
-    this.changeTheme = this.changeTheme.bind(this);
   }
 
-  changeLanguage(language) {
+  changeLanguage = (language) => {
     this.setState({ language });
     saveLanguageToStorage(language);
     const { i18n } = this.props;
     i18n.changeLanguage(language.id);
-  }
+  };
 
-  changeTheme(theme) {
+  changeTheme = (theme) => {
     this.context(theme);
     this.setState({ theme });
-  }
+  };
 
   render() {
     const { theme, language } = this.state;

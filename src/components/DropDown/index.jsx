@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { IconDownArrow } from "components/icons";
+
 import {
   DropDownContainer,
   DropDownHeader,
   DropDownList,
   DropDownListContainer,
   ListItem,
-} from "./components";
+} from "./styled";
+import IconAwesome from "../IconAwesome";
+import { ICON_DOWN_ARROW } from "../../constants/icons";
 
-function DropDownMenu({ options, selected, setSelected }) {
+const DropDownMenu = ({ options, selected, setSelected }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggling = () => setIsOpen(!isOpen);
@@ -22,7 +24,7 @@ function DropDownMenu({ options, selected, setSelected }) {
     <DropDownContainer>
       <DropDownHeader onClick={toggling}>
         {selected.name}
-        <IconDownArrow />
+        <IconAwesome className={ICON_DOWN_ARROW} />
       </DropDownHeader>
       {isOpen && (
         <DropDownListContainer>
@@ -37,6 +39,6 @@ function DropDownMenu({ options, selected, setSelected }) {
       )}
     </DropDownContainer>
   );
-}
+};
 
 export default React.memo(DropDownMenu);

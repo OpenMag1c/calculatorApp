@@ -1,11 +1,13 @@
-import { Calculator } from "./calculator";
+import { OPERATIONS } from "../../constants/buttons";
 import splitExample from "./splitExample";
+import { Calculator } from "./calculator";
 import truncated from "./truncated";
+
 
 function fixMultiplication(example) {
   // fix situation like 16(-1) => 16*(-1)
   for (let i = 1; i < example.length; i++) {
-    if (example[i] === "(" && !Number.isNaN(example[i - 1])) {
+    if (example[i] === "(" && !Number.isNaN(example[i - 1]) && !OPERATIONS.includes(example[i - 1])) {
       example = `${example.slice(0, i)}*${example.slice(i)}`;
       i++;
     }
@@ -16,7 +18,7 @@ function fixMultiplication(example) {
 function calculate(calculator) {
   const { operations } = calculator;
   for (let i = 0; i < operations.length; ) {
-    if (operations[i] === "*" || operations[i] === "/") {
+    if (operations[i] === "*" || operations[i] === "/" || operations[i] === "%") {
       calculator.execute(operations[i], i);
       continue;
     }
@@ -35,7 +37,12 @@ function calculate(calculator) {
 }
 
 const solvePart = (example) => {
-  const { numbers, operations } = splitExample(example);
+  const splitedExample = splitExample(example);
+  if (!splitedExample) {
+    return null;
+  }
+
+  const { numbers, operations } = splitedExample;
   const calculator = new Calculator(numbers, operations);
   return calculate(calculator);
 };
@@ -52,6 +59,9 @@ const solveExample = (ex) => {
       if (example[i] === ")") {
         const openBracket = openBrackets.pop();
         const part = solvePart(example.slice(openBracket + 1, i));
+        if (part === null) {
+          return null;
+        }
         example = example.slice(0, openBracket) + part + example.slice(i + 1);
         break;
       }

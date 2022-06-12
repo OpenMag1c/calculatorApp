@@ -1,12 +1,12 @@
 import React from "react";
 import useThemeSettings from "hooks/useThemeSettings";
-import DropDownMenu from "components/DropDown";
 import useLanguageSettings from "hooks/useLanguageSettings";
+import DropDownMenu from "components/DropDown";
 import { themes } from "settings/themes";
 import { languages } from "settings/languages";
-import { Wrapper, Title } from "./components";
+import { Title, Wrapper } from "./styled";
 
-function Settings() {
+const Settings = () => {
   const { theme, changeTheme } = useThemeSettings();
   const { t, changeLanguage, language } = useLanguageSettings();
 
@@ -25,6 +25,6 @@ function Settings() {
       />
     </Wrapper>
   );
-}
+};
 
 export default Settings;

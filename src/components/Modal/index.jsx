@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { InnerModal, WrapperModal } from "components/Modal/components";
+import { InnerModal, WrapperModal } from "./styled";
 
 function Modal({ active, setActive, children }) {
   const clickModal = () => setActive(false);

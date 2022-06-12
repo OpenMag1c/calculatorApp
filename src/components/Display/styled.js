@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledInput = styled.span`
+const Container = styled.span`
   min-height: 4rem;
   height: 10%;
   width: 100%;
@@ -12,4 +12,4 @@ const StyledInput = styled.span`
   border: none;
 `;
 
-export default StyledInput;
+export default Container;

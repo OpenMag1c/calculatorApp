@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { getThemeFromStorage } from "helpers/localStorage/theme";
-import ThemeContext from "helpers/themeContext";
+import { getThemeFromStorage } from "../helpers/localStorage/theme";
+import ThemeContext from "../helpers/themeContext";
 
 const useThemeSettings = () => {
   const [theme, setTheme] = useState(() => getThemeFromStorage());

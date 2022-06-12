@@ -1,5 +1,5 @@
-import keys from "constants/localStorageKeys";
-import { defaultTheme, themes } from "settings/themes";
+import keys from "../../constants/localStorageKeys";
+import { defaultTheme, themes } from "../../settings/themes";
 
 export const getThemeFromStorage = () => {
   const id = window.localStorage.getItem(keys.theme);

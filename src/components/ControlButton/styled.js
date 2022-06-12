@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
-  height: 4rem;
+export const Wrapper = styled.div`
+  width: 20%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Container = styled.button`
   width: 4rem;
-  margin: 0.4rem;
-  flex-basis: 14%;
+  height: 4rem;
   border: 1px solid ${({ theme }) => theme.colors.black};
   border-radius: 0.5rem;
   background-color: ${({ theme }) => theme.colors.light};
@@ -58,5 +64,3 @@ const StyledButton = styled.button`
       ${({ theme }) => theme.colors.light};
   }
 `;
-
-export default StyledButton;

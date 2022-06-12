@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { HistoryButton, ScrollDiv, Title } from "./components";
+import { HistoryButton, ScrollDiv, Title } from "./styled";
 
-export default React.memo(({ history, setExample, updateHistory }) => {
+const History = ({ history, setExample, updateHistory }) => {
   const { t } = useTranslation();
   const onNoteClick = (note) => () => {
     setExample(note.example);
@@ -26,4 +26,6 @@ export default React.memo(({ history, setExample, updateHistory }) => {
       )}
     </ScrollDiv>
   );
-});
+};
+
+export default History;

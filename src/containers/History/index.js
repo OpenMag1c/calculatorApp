@@ -1,13 +1,8 @@
 import React from "react";
 import { withTranslation } from "react-i18next";
-import { HistoryButton, ScrollDiv, Title } from "./components";
+import { HistoryButton, ScrollDiv, Title } from "./styled";
 
 class History extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onNoteClick = this.onNoteClick.bind(this);
-  }
-
   onNoteClick = (note) => () => {
     const { setExample } = this.props;
     setExample(note.example);

@@ -2,16 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Layouts from "layouts";
-import App from "App/indexFC";
-import GlobalStyles from "globalStyles";
+
+import App from "./App";
+import Layouts from "./layouts";
 import {
   getThemeFromStorage,
   saveThemeToStorage,
-} from "helpers/localStorage/theme";
-import ThemeContext from "helpers/themeContext";
-import ErrorBoundary from "components/ErrorBoundary";
-import "helpers/i18n/i18n";
+} from "./helpers/localStorage/theme";
+import ErrorBoundary from "./components/ErrorBoundary";
+import GlobalStyles from "./themes/globalStyles";
+import ThemeContext from "./helpers/themeContext";
+import "./helpers/i18n/i18n";
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -19,7 +20,6 @@ class AppContainer extends React.Component {
     this.state = {
       theme: getThemeFromStorage().theme,
     };
-    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   toggleTheme = (theme) => {

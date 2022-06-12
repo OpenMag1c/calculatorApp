@@ -1,10 +1,10 @@
 import React from "react";
-import theme from "theme";
-import Spinner, { Wrapper } from "./components";
+import theme from "../../themes/theme";
+import { Spinner, Wrapper } from "./styled";
 
 const LOADER_SIZE = 100;
 
-function Loader() {
+const Loader = () => {
   return (
     <Wrapper>
       <Spinner
@@ -15,6 +15,6 @@ function Loader() {
       />
     </Wrapper>
   );
-}
+};
 
 export default Loader;

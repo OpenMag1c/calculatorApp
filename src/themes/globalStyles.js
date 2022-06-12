@@ -49,4 +49,15 @@ export default createGlobalStyle`
       border-bottom: 2px solid ${theme.colors.white};
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem; /* ширина для вертикального скролла */
+    height: 1rem; /* высота для горизонтального скролла */
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.black};
+    border-radius: 9em;
+  }
 `;

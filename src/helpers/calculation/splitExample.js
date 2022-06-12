@@ -1,4 +1,4 @@
-import { OPERATIONS } from "constants/buttons";
+import { OPERATIONS } from "../../constants/buttons";
 
 const splitExample = (example) => {
   // split into an array of operations and an array of numbers
@@ -15,10 +15,8 @@ const splitExample = (example) => {
     if (OPERATIONS.includes(example[i])) {
       // division into an array of operations and numbers
       operations.push(example[i]);
-      if (number) {
-        numbers.push(Number(number));
-        number = "";
-      }
+      numbers.push(Number(number));
+      number = "";
       continue;
     }
 
@@ -26,9 +24,11 @@ const splitExample = (example) => {
       number += example[i];
     }
   }
-  numbers.push(Number(number));
+  if (number) {
+    numbers.push(Number(number));
+  }
 
-  return {
+  return numbers.length <= operations.length ? null : {
     operations,
     numbers,
   };

@@ -1,14 +1,14 @@
 import React from "react";
-import Display from "components/Display";
-import KeyPad from "containers/KeyPad";
-import History from "containers/History";
+import useErrorMessage from "hooks/useErrorMessage";
 import useCalculation from "hooks/useCalculation";
+import Display from "components/Display";
+import KeyPad from "containers/KeyPad/indexFC";
+import History from "containers/History/indexFC";
 import Modal from "components/Modal";
 import MessageBox from "components/MessageBox";
-import useErrorMessage from "hooks/useErrorMessage";
-import { Container, Wrapper } from "./components";
+import { Container, Wrapper } from "./styled";
 
-function Home() {
+const Home = () => {
   const { message, setError, setIsError, isError } = useErrorMessage();
   const { example, setExample, history, updateHistory, onPressKey } =
     useCalculation(setError);
@@ -29,6 +29,6 @@ function Home() {
       </Modal>
     </Container>
   );
-}
+};
 
 export default Home;

@@ -2,18 +2,19 @@ import React, { useCallback, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Layouts from "layouts";
-import App from "App/indexFC";
-import GlobalStyles from "globalStyles";
+
+import App from "./App/indexFC";
+import GlobalStyles from "./themes/globalStyles";
 import {
   getThemeFromStorage,
   saveThemeToStorage,
-} from "helpers/localStorage/theme";
-import ThemeContext from "helpers/themeContext";
-import ErrorBoundary from "components/ErrorBoundary";
-import "helpers/i18n/i18n";
+} from "./helpers/localStorage/theme";
+import ThemeContext from "./helpers/themeContext";
+import ErrorBoundary from "./components/ErrorBoundary";
+import "./helpers/i18n/i18n";
+import Layouts from "./layouts";
 
-function AppContainer() {
+const AppContainer = () => {
   const [theme, setTheme] = useState(() => getThemeFromStorage().theme);
 
   const toggleTheme = useCallback((newTheme) => {
@@ -35,7 +36,7 @@ function AppContainer() {
       </ThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

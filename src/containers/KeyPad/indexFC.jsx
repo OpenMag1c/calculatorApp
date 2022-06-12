@@ -1,9 +1,9 @@
 import React from "react";
-import { CONTROL_BUTTONS } from "constants/buttons";
-import ControlButton from "components/ControlButton";
-import Panel from "./components";
+import { CONTROL_BUTTONS } from "../../constants/buttons";
+import ControlButton from "../../components/ControlButton";
+import { Panel } from "./styled";
 
-function KeyPad({ onPressKey }) {
+const KeyPad = ({ onPressKey }) => {
   return (
     <Panel>
       {CONTROL_BUTTONS.map((button) => (
@@ -16,6 +16,6 @@ function KeyPad({ onPressKey }) {
       ))}
     </Panel>
   );
-}
+};
 
 export default KeyPad;

@@ -1,9 +1,12 @@
 import React from "react";
-import StyledButton from "./components";
+import { Container, Wrapper } from "./styled";
 
-function ControlButton(props) {
-  const { text } = props;
-  return <StyledButton {...props}>{text}</StyledButton>;
-}
+const ControlButton = ({ text, ...otherProps }) => {
+  return (
+    <Wrapper>
+      <Container {...otherProps}>{text}</Container>
+    </Wrapper>
+  );
+};
 
 export default ControlButton;

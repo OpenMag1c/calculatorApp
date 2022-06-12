@@ -1,6 +1,6 @@
-import lightTheme from "assets/lightTheme";
-import darkTheme from "assets/darkTheme";
-import { DARK_THEME, LIGHT_THEME } from "locals/themes";
+import lightTheme from "../themes/lightTheme";
+import { DARK_THEME, LIGHT_THEME } from "../themes/themes";
+import darkTheme from "../themes/darkTheme";
 
 export const themes = [
   {
